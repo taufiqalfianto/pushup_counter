@@ -33,7 +33,7 @@ class _PushUpState extends State<PushUp> {
           _handlePose(pose);
           if (_detectedPose != null) {
             if (_detectedPose!.landmarks.isNotEmpty) {
-               if (down) {
+              if (down) {
                 if (_detectedPose!.landmarks[10].position.x ==
                         _detectedPose!.landmarks[11].position.y ||
                     _detectedPose!.landmarks[10].position.x >
