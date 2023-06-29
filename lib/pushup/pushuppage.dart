@@ -5,7 +5,6 @@ import 'package:body_detection/models/image_result.dart';
 import 'package:body_detection/models/pose.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:pushup_counter/theme.dart';
 
 class PushUp extends StatefulWidget {
   const PushUp({Key? key}) : super(key: key);
