@@ -1,18 +1,21 @@
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:flutter/material.dart';
+import 'package:pushup_counter/historypage/historypage.dart';
 import 'package:pushup_counter/homepage/widget/containerheight.dart';
 import 'package:pushup_counter/homepage/widget/containerwidth.dart';
 import 'package:pushup_counter/pushup/pushuppage.dart';
 import 'package:pushup_counter/theme.dart';
+import 'package:intl/intl.dart';
 
+// ignore: must_be_immutable
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  var date = DateFormat("MMMM, dd, yyyy").format(DateTime.now());
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: lightbase,
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
           child: ListView(
@@ -96,15 +99,15 @@ class HomePage extends StatelessWidget {
               ),
               CustomCheckBoxGroup(
                 buttonTextStyle: ButtonTextStyle(
-                  selectedColor: basechoco,
+                  selectedColor: lightbase,
                   unSelectedColor: basechoco,
                   textStyle:
                       blacktextstyle.copyWith(fontSize: 14, fontWeight: bold),
                 ),
-                unSelectedColor: lightbase,
-                selectedBorderColor: lightbase,
+                unSelectedColor: Colors.white,
+                selectedBorderColor: Colors.white,
                 unSelectedBorderColor: basechoco,
-                selectedColor: lightgreen,
+                selectedColor: basechoco,
                 buttonLables: [
                   "All Body",
                   "Chest",
@@ -175,12 +178,34 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 24,
               ),
-              Text(
-                'Workout Program',
-                style: blacktextstyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: bold,
-                ),
+              Row(
+                children: [
+                  Text(
+                    'History Workout',
+                    style: blacktextstyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: bold,
+                    ),
+                  ),
+                  Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HistoryPage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'See All History',
+                      style: blacktextstyle.copyWith(
+                        fontSize: 12,
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 24,
@@ -188,7 +213,14 @@ class HomePage extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [],
+                  children: [
+                    ContainerWidth(
+                      bgimage: 'images/Vector-1.png',
+                      bgcolor: wavebase3,
+                      title: date,
+                      reps: '',
+                    ),
+                  ],
                 ),
               ),
 

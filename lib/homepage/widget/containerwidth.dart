@@ -42,7 +42,7 @@ class ContainerWidth extends StatelessWidget {
               ),
             ),
             Text(
-             reps,
+              reps,
               style: blacktextstyle.copyWith(
                 fontSize: 18,
                 fontWeight: medium,
