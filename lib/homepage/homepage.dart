@@ -62,16 +62,22 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 24,
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ContainerHeight(),
-                    ContainerHeight(),
-                    ContainerHeight(),
-                    ContainerHeight(),
-                  ],
-                ),
+              Row(
+                children: [
+                  ContainerHeight(
+                    image: 'images/heart.png',
+                    title: 'Heart Rate',
+                    bgcolor: wavebase1,
+                    color: wavebase1,
+                  ),
+                  Spacer(),
+                  ContainerHeight(
+                    image: 'images/step.png',
+                    title: 'Steps',
+                    bgcolor: wavebase3,
+                    color: wavebase3,
+                  ),
+                ],
               ),
               SizedBox(
                 height: 24,
@@ -209,18 +215,11 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 24,
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ContainerWidth(
-                      bgimage: 'images/Vector-1.png',
-                      bgcolor: wavebase3,
-                      title: date,
-                      reps: '',
-                    ),
-                  ],
-                ),
+              ContainerWidth(
+                bgimage: 'images/Vector-1.png',
+                bgcolor: wavebase3,
+                title: date,
+                reps: '',
               ),
 
               SizedBox(
