@@ -66,17 +66,6 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PushUp(),
-                          ),
-                        );
-                      },
-                      child: ContainerHeight(),
-                    ),
                     ContainerHeight(),
                     ContainerHeight(),
                     ContainerHeight(),
@@ -141,11 +130,21 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    ContainerWidth(
-                      bgimage: 'images/Vector-1.png',
-                      bgcolor: wavebase3,
-                      title: 'PushUp',
-                      reps: '20 x 4 Reps',
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PushUp(),
+                          ),
+                        );
+                      },
+                      child: ContainerWidth(
+                        bgimage: 'images/Vector-1.png',
+                        bgcolor: wavebase3,
+                        title: 'PushUp',
+                        reps: '20 x 4 Reps',
+                      ),
                     ),
                     ContainerWidth(
                       bgimage: 'images/Vector-2.png',

@@ -22,6 +22,7 @@ class _PushUpState extends State<PushUp> {
   bool up = false;
   var _cameraImage;
   bool down = true;
+  Timer second = Timer(Duration(seconds: 1), () {});
 
   FutureOr<void> _startCameraStream() async {
     final request = await Permission.camera.request();
@@ -32,10 +33,10 @@ class _PushUpState extends State<PushUp> {
           _handlePose(pose);
           if (_detectedPose != null) {
             if (_detectedPose!.landmarks.isNotEmpty) {
-              if (down) {
-                if (_detectedPose!.landmarks[11].position.x ==
-                        _detectedPose!.landmarks[12].position.y ||
-                    _detectedPose!.landmarks[13].position.x >
+               if (down) {
+                if (_detectedPose!.landmarks[10].position.x ==
+                        _detectedPose!.landmarks[11].position.y ||
+                    _detectedPose!.landmarks[10].position.x >
                         _detectedPose!.landmarks[11].position.y) {
                   pushUpCount = pushUpCount + 0.5;
                   setState(() {
@@ -53,6 +54,28 @@ class _PushUpState extends State<PushUp> {
                   });
                 }
               }
+              // if (up) {
+              //   if (_detectedPose!.landmarks[11].position.x ==
+              //           _detectedPose!.landmarks[13].position.y ||
+              //       _detectedPose!.landmarks[11].position.y <
+              //           _detectedPose!.landmarks[13].position.x) {
+              //     pushUpCount = pushUpCount + 0.5;
+
+              //     setState(() {
+              //       up = !up;
+              //       up = true;
+              //     });
+              //   }
+              // } else if (down) {
+              //   if (_detectedPose!.landmarks[11].position.y >
+              //       _detectedPose!.landmarks[12].position.x) {
+              //     pushUpCount = pushUpCount + 0.5;
+              //     setState(() {
+              //       down = !down;
+              //       down = true;
+              //     });
+              //   }
+              // }
             }
           }
         },
@@ -105,7 +128,6 @@ class _PushUpState extends State<PushUp> {
     var height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: lightbase,
         body: Stack(
           children: [
             Container(
